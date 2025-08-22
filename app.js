@@ -5,10 +5,6 @@ let  amigos =[]
 
 
 
-
-
-
-
 function agregarAmigo() {
    const amigo =document.getElementById("amigo").value;
    const lista = document.getElementById("listaAmigos");
@@ -33,7 +29,6 @@ function sortearAmigo() {
     const indice = generarIndiceAleatorio();
     document.getElementById("listaAmigos").innerHTML = "";
     document.getElementById("resultado").innerHTML = "";
-    console.log(indice);
     if (amigos[indice]!== undefined) {
         const amigoSeleccionado = amigos[indice];
         document.getElementById("resultado").textContent = `El amigo Secreto Sorteado es : ${amigoSeleccionado}`;
@@ -100,6 +95,5 @@ function  generarIndiceAleatorio() {
     }
     
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
-    console.log(indiceAleatorio);
     return indiceAleatorio;
 }
