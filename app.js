@@ -27,6 +27,31 @@ function agregarAmigo() {
 
 }
 
+
+
+function sortearAmigo() {
+    const indice = generarIndiceAleatorio();
+    document.getElementById("listaAmigos").innerHTML = "";
+    document.getElementById("resultado").innerHTML = "";
+    console.log(indice);
+    if (amigos[indice]!== undefined) {
+        const amigoSeleccionado = amigos[indice];
+        document.getElementById("resultado").textContent = `El amigo Secreto Sorteado es : ${amigoSeleccionado}`;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 function validacionTexto(nombre) {
    let valor;
     
@@ -74,7 +99,7 @@ function  generarIndiceAleatorio() {
         return;
     }
     
-    const indiceAleatorio = Math.floor(Math.random() * amigos.length)-1;
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    console.log(indiceAleatorio);
     return indiceAleatorio;
 }
-
