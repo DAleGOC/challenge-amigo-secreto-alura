@@ -10,11 +10,12 @@ let  amigos =[]
 
 
 function agregarAmigo() {
-   let amigo =document.getElementById("amigo").value;
-    
+   const amigo =document.getElementById("amigo").value;
+   const lista = document.getElementById("listaAmigos");
         if (validacionTexto(amigo)) {
             amigos.push(amigo);
             document.getElementById("amigo").value = "";
+            listaAmigos(lista);
             mostrarAmigos();
         }
         else {
@@ -22,6 +23,7 @@ function agregarAmigo() {
             document.getElementById("amigo").value = "";
         }
     
+      
 
 }
 
@@ -30,7 +32,6 @@ function validacionTexto(nombre) {
     
     if (!nombre || nombre.trim() === '') {
        alert('El nombre no puede estar vacío');
-       document.getElementById("amigo").value = "";
         return false;
     }
     
@@ -49,11 +50,31 @@ function validacionTexto(nombre) {
     return true;
 }
 
+function listaAmigos(lista) {
+    lista.innerHTML = "";
+    for (let i = 0; i < amigos.length; i++) {
+        const amigoItem = document.createElement("li");
+        amigoItem.textContent = amigos[i];
+        lista.appendChild(amigoItem);
+    }
+   
+}
+
+
+
 mostrarAmigos = () => {
 console.log(amigos);
   
 }
 
 
-
+function  generarIndiceAleatorio() {
+    if (amigos.length === 0) {
+        alert("No hay amigos en la lista.");
+        return;
+    }
+    
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length)-1;
+    return indiceAleatorio;
+}
 
